@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Indicate page from which Single Page Application is build -->
+    <base href="/">
     <meta charset="UTF-8">
     <title>Whatapop</title>
     <!-- Styles -->
@@ -9,8 +11,19 @@
     <link rel="stylesheet" href="styles/whatapop.css">
     <!-- Angular -->
     <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
+    <!-- Module configuration script -->
+    <script src="scripts/app.js"></script>
+    <!-- Components -->
+    <script src="scripts/components/products.js"></script>
+    <script src="scripts/components/root.js"></script>
+    <!-- Services -->
+    <script src="scripts/services/products-service.js"></script>
+    <!-- Values -->
+    <script src="scripts/values/properties.js"></script>
 </head>
-<body>
-
+<body ng-app="whatapop">
+    <!-- Root component -->
+    <root></root>
 </body>
 </html>

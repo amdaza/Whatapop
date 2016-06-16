@@ -5,8 +5,9 @@ angular
         $routeConfig: [{
             name: "Products",
             path: "/products",
-            component: "products"
-        },
+            component: "products",
+            useAsDefault: true
+        }
         /*{
             name: "NewRecipe",
             path: "/new-recipe",
