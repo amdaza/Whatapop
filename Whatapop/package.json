@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sparrest": "node ./node_modules/node-sparrest/node-sparrest.js",
-    "lite": "lite-server",
-    "dev": "concurrently 'npm run sparrest' 'npm run lite'"
+    "lite-server": "lite-server",
+    "dev": "concurrently \"npm run sparrest\" \"npm run lite-server\""
   },
   "author": "@amdaza",
   "license": "ISC",
