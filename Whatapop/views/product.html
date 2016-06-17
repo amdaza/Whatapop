@@ -7,5 +7,9 @@
         <a ng-link="['Product', { id: product.id }]" class="product-title">{{ $ctrl.productData.name }}</a>
         <p class="product-description" ng-bind-html="$ctrl.productDescription"></p>
         <p class="product-category">{{ $ctrl.productData.category.name }}</p>
+        <hr>
+        <div class="product-seller">
+            <simple-user userbasicdata="$ctrl.productData.seller"></simple-user>
+        </div>
     </div>
 </div>
