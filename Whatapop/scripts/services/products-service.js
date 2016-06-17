@@ -2,9 +2,16 @@
 angular
     .module("whatapop")
     .service("productsService", function($http, Properties) {
-        // All functionality that you want to export has to be published in this
+        // All functionality that you want to export has to be published here
+
         this.getProducts = function() {
             return $http.get(Properties.serverUrl + Properties.endpointProducts);
+        };
+
+        this.getImageAbsolutePath = function (relativePath) {
+            return (relativePath)
+                ? (Properties.serverUrl + "/" + relativePath)
+                : undefined;
         };
 
         // Maybe later
@@ -48,12 +55,6 @@ angular
                 promise = $http.post(Properties.serverUrl + Properties.endpointProducts, product);
             }
             return promise;
-        };
-
-        this.getImageAbsolutePath = function (relativePath) {
-            return (relativePath)
-                ? ("http://localhost:8000/" + relativePath)
-                : undefined;
         };
         */
     });

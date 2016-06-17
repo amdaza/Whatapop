@@ -9,6 +9,9 @@ var ctrl = function (productsService) {
             // In 'data' property it's its body
             self.products = response.data;
         });
+
+    // Get image absolute path
+    self.getImagePath = productsService.getImageAbsolutePath;
 };
 
 ctrl.$inject = ["productsService"];
