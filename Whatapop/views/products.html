@@ -4,8 +4,8 @@
             <img src="{{ $ctrl.getImagePath(product.photos[0])  }}">
             <div class="product-detail">
                 <div class="vertical-centered">
-                    <h3>{{ product.name }}</h3>
-                    <p class="separator orange">{{ product.description }}</p>
+                    <a href="#" class="product-title">{{ product.name }}</a>
+                    <p class="product-category">{{ product.category.name }}</p>
                 </div>
             </div>
         </li>

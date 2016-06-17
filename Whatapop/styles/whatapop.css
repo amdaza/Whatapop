@@ -37,3 +37,23 @@ header.main-header a {
     height: 100%;
     display: block;
 }
+
+.product-detail .product-title {
+    display: block;
+    color: #6a6a6a;
+    text-decoration: none;
+}
+
+.product-detail .product-title:hover {
+    text-decoration: underline;
+}
+
+.product-detail .product-category {
+    display: block;
+    color: #b5b5b5;
+    text-decoration: none;
+}
+
+.product-detail .product-category:hover {
+    text-decoration: underline;
+}
