@@ -33,8 +33,10 @@ header.main-header a {
     margin-left: 0;
 }
 .product-items li img{
-    width: auto;
-    height: 100%;
+  /*  width: auto;*/
+  /*  height: 100%;*/
+    width: 100%;
+    height: auto;
     display: block;
 }
 

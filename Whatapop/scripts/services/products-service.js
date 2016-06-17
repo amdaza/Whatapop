@@ -8,6 +8,10 @@ angular
             return $http.get(Properties.serverUrl + Properties.endpointProducts);
         };
 
+        this.getProduct = function(productId) {
+            return $http.get(Properties.serverUrl + Properties.endpointProducts + "/" + productId);
+        };
+
         this.getImageAbsolutePath = function (relativePath) {
             return (relativePath)
                 ? (Properties.serverUrl + "/" + relativePath)

@@ -7,11 +7,11 @@ angular
             path: "/products",
             component: "products",
             useAsDefault: true
-        }
-        /*{
-            name: "NewRecipe",
-            path: "/new-recipe",
-            component: "newRecipe"
-        }*/],
+        },
+        {
+            name: "Product",
+            path: "/products/:id",
+            component: "product"
+        }],
         templateUrl: "views/root.html"
     });
