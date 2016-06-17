@@ -3,6 +3,10 @@ body {
     background-color: #f6f6f6;
 }
 
+.near-you-space-holder {
+    height: 5.2rem;
+}
+
 header.main-header {
     background-color: #7522C5;
 }
