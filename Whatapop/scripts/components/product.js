@@ -9,7 +9,7 @@ angular
             // get $router automatically from ng-outlet. It has to be that name
             $router: "<" // unidirectional binding, cannot be @ nor &
         },
-        controller: function (productsService) {
+        controller: function (productsService, $sce) {
             // Save component reference
             var self = this;
             var productImage;
@@ -19,8 +19,12 @@ angular
 
                 productsService.getProduct(productId)
                     .then( function (response) {
+                        // General data
                         self.productData = response.data;
-                        console.log(self.productData);
+
+                        // Description (comes as HTML)
+                        self.productDescription = $sce.trustAsHtml(
+                            response.data.description);
                     });
 
                 //console.log(id);
@@ -28,6 +32,9 @@ angular
             
             // Get image absolute path
             self.getImagePath = productsService.getImageAbsolutePath;
+
+            //
+
             
 /*
             // Save product

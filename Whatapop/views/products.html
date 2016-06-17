@@ -7,6 +7,7 @@
             <img src="{{ $ctrl.getImagePath(product.photos[0])  }}">
             <div class="product-detail">
                 <div class="vertical-centered">
+                    <span class="product-price">{{ product.price }}</span>
                     <a ng-link="['Product', { id: product.id }]" class="product-title">{{ product.name }}</a>
                     <p class="product-category">{{ product.category.name }}</p>
                 </div>

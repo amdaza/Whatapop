@@ -59,3 +59,22 @@ header.main-header a {
 .product-detail .product-category:hover {
     text-decoration: underline;
 }
+
+.page-single-product .product-detail{
+    background-color: #FFF;
+    padding: 15px;
+}
+
+.page-single-product .product-detail .product-title {
+    font-size: 2.3rem;
+    color: #6a6a6a;
+}
+
+.page-single-product .product-detail .product-description {
+    color: #a5a5a5;
+}
+
+.product-price {
+    color: #7522C5;
+    font-size: 2rem;
+}

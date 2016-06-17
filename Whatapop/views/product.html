@@ -1,8 +1,11 @@
-<div class="row">
-    <div class="images-slide six columns">
+<div class="row page-single-product">
+    <div class="images-slide five columns">
         <img src="{{ $ctrl.getImagePath($ctrl.productData.photos[0])  }}">
     </div>
-    <div class="product-details six columns">
-
+    <div class="product-detail seven columns">
+        <span class="product-price">{{ $ctrl.productData.price }}</span>
+        <a ng-link="['Product', { id: product.id }]" class="product-title">{{ $ctrl.productData.name }}</a>
+        <p class="product-description" ng-bind-html="$ctrl.productDescription"></p>
+        <p class="product-category">{{ $ctrl.productData.category.name }}</p>
     </div>
 </div>
