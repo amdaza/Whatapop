@@ -38,6 +38,10 @@ header.main-header a {
     display: block;
 }
 
+.product-detail {
+    padding: 7px;
+}
+
 .product-detail .product-title {
     display: block;
     color: #6a6a6a;
@@ -88,6 +92,13 @@ header.main-header a {
     font-size: 2rem;
 }
 
+.product-seller,
+.user-view {
+    border-top-color: #EFEFEF;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
 .simple-user {
     display: table;
 }
@@ -95,7 +106,7 @@ header.main-header a {
 .user-avatar-container {
     text-align: center;
     display: table-cell;
-    padding: 10px;
+    padding: 7px;
 }
 
 .user-avatar {

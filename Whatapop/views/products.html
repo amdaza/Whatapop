@@ -10,11 +10,10 @@
                     <div class="vertical-centered">
                         <span class="product-price">{{ product.price }}</span>
                         <a ng-link="['Product', { id: product.id }]" class="product-title">{{ product.name }}</a>
-                        <p class="product-category">{{ product.category.name }}</p>
+                        <span class="product-category">{{ product.category.name }}</span>
                     </div>
                 </div>
             </div>
-            <hr>
             <div class="user-view">
                 <simple-user userbasicdata="product.seller"></simple-user>
             </div>

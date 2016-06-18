@@ -1,7 +1,7 @@
 
 var ctrl = function (usersService) {
     var self = this;
-console.log(self);
+
     self.getImagePath = usersService.getImageAbsolutePath;
 };
 
