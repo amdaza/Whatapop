@@ -10,7 +10,6 @@ angular
 
             // Format if there is some value
             if (matches) {
-                console.log(matches.index);
                 var platform = matches[1];
                 var title = fullTitle.substring(0, matches.index);
                 var html = `<span class="product-name-only">` +
