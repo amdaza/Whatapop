@@ -14,7 +14,9 @@
                 <div class="product-detail">
                     <div class="vertical-centered">
                         <span class="product-price">{{ product.price | currency }}</span>
-                        <a ng-link="['Product', { id: product.id }]" class="product-title">{{ product.name }}</a>
+                        <a ng-link="['Product', { id: product.id }]"
+                           class="product-title"
+                           ng-bind-html="product.name | productTitleFilter"></a>
                         <span class="product-category">{{ product.category.name }}</span>
                     </div>
                 </div>

@@ -73,6 +73,15 @@ header.main-header a {
     border-radius: 50%;
 }
 
+.product-items .product-detail .product-title {
+    font-size: 1.7rem;
+}
+
+.product-items .product-detail .product-title .product-platform {
+    color: #777;
+    font-size: 1.3rem;
+}
+
 .page-single-product .product-detail{
     background-color: #FFF;
     padding: 15px;
@@ -107,6 +116,7 @@ header.main-header a {
     text-align: center;
     display: table-cell;
     padding: 7px;
+    line-height: 0;
 }
 
 .user-avatar {

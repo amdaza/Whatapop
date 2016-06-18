@@ -4,7 +4,8 @@
     </div>
     <div class="product-detail seven columns">
         <span class="product-price">{{ $ctrl.productData.price | currency }}</span>
-        <a ng-link="['Product', { id: product.id }]" class="product-title">{{ $ctrl.productData.name }}</a>
+        <a ng-link="['Product', { id: product.id }]"
+           class="product-title" ng-bind-html="$ctrl.productData.name | productTitleFilter"></a>
         <p class="product-description" ng-bind-html="$ctrl.productDescription"></p>
         <p class="product-category">{{ $ctrl.productData.category.name }}</p>
         <div class="product-seller">
