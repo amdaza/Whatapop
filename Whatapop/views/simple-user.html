@@ -1,7 +1,9 @@
 <div class="simple-user">
-    <div class="user-avatar" style="background-image: url('{{ $ctrl.getImagePath($ctrl.userbasicdata.avatar)  }}')">
-
-    </div>
-    <span class="user-nick">{{ $ctrl.userbasicdata.nick }}</span>
-    <!--span class="seller-products">10 Productos</span-->
+        <div class="user-avatar-container">
+            <div class="user-avatar"
+                 style="background-image: url('{{ $ctrl.getImagePath($ctrl.userbasicdata.avatar)  }}')"></div>
+        </div>
+        <div class="user-nick-container">
+            <span class="user-nick">{{ $ctrl.userbasicdata.nick }}</span>
+        </div>
 </div>

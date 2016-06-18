@@ -59,10 +59,9 @@ header.main-header a {
 }
 
 .simple-user .user-avatar {
-    float: left;
     overflow: hidden;
-    width: 32px;
-    height: 32px;
+    width: 4rem;
+    height: 4rem;
     background-image: url(http://donatered-asset.s3.amazonaws.com/assets/default/default_user-884fcb1a70325256218e78500533affb.jpg);
     -webkit-background-size: 100%;
     background-size: 100%;
@@ -87,4 +86,28 @@ header.main-header a {
 .product-price {
     color: #7522C5;
     font-size: 2rem;
+}
+
+.simple-user {
+    display: table;
+}
+
+.user-avatar-container {
+    text-align: center;
+    display: table-cell;
+    padding: 10px;
+}
+
+.user-avatar {
+    display: inline-block;
+}
+
+.user-nick-container {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.user-nick {
+    display: inline-block;
 }
