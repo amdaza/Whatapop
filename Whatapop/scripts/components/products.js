@@ -7,11 +7,12 @@ var ctrl = function (productsService) {
         .then(function (response) {
 
             // In 'data' property it's its body
-            self.products = response.data;
+            self.products = shuffleArray(response.data);
         });
 
     // Get image absolute path
     self.getImagePath = productsService.getImageAbsolutePath;
+
 };
 
 ctrl.$inject = ["productsService"];
