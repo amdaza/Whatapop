@@ -1,3 +1,7 @@
+/*
+* @author: Mike Bostock (https://bost.ocks.org/mike/)
+* https://bost.ocks.org/mike/shuffle/
+* */
 
 // -> Fisher–Yates shuffle algorithm
 var shuffleArray = function(array) {
