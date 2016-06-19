@@ -17,7 +17,7 @@
                         <a ng-link="['Product', { id: product.id }]"
                            class="product-title"
                            ng-bind-html="product.name | productTitleFilter"></a>
-                        <span class="product-category">{{ product.category.name }}</span>
+                        <span class="product-category">{{ product.category.name + product.category.id }}</span>
                     </div>
                 </div>
             </div>

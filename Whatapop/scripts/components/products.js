@@ -10,9 +10,16 @@ var ctrl = function (productsService, $location, $filter) {
             var customFilter = {};
 
             if (urlParams.search &&
-                urlParams.search.length >0 ){
+                urlParams.search.length > 0 ){
 
                 customFilter.name = urlParams.search;
+            }
+
+            if (urlParams.cat &&
+                urlParams.cat.length > 0 ){
+
+                customFilter.category = {};
+                customFilter.category.id = parseInt(urlParams.cat);
             }
 
             products = $filter('filter')(products, customFilter );
