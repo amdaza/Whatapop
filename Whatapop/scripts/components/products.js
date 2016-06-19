@@ -2,11 +2,14 @@
 var ctrl = function (productsService, $location, $filter) {
     // this references context, this context is the one we need, so we save it on self var
     var self = this;
-    var urlParams = $location.search();
 
-    productsService.getProducts() // Returns a promise
+    self.$onInit = function () {
+        productsService.getProducts() // Returns a promise
         .then(function (response) {
+            // Random order
             var products = shuffleArray(response.data);
+            // Get params to filter
+            var urlParams = $location.search();
             var customFilter = {};
 
             if (urlParams.search &&
@@ -22,14 +25,9 @@ var ctrl = function (productsService, $location, $filter) {
                 customFilter.category.id = parseInt(urlParams.cat);
             }
 
-            products = $filter('filter')(products, customFilter );
-
-            console.log(products.length);
-
-            self.products = products;
-
-
+            self.products = $filter('filter')(products, customFilter);
         });
+    };
 
     // Get image absolute path
     self.getImagePath = productsService.getImageAbsolutePath;
@@ -44,5 +42,10 @@ angular
         // component view
         templateUrl: "views/products.html",
 
+        // 'bindings' Establish component communication interface
+        bindings: {
+            // get $router automatically from ng-outlet. It has to be that name
+            $router: "<" // unidirectional binding, cannot be @ nor &
+        },
         controller: ctrl // Component logic
     });

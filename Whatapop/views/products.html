@@ -8,7 +8,7 @@
                 placeholder="Busca productos por su nombre"
                 ng-model="filterProduct">
         </li-->
-        <li ng-repeat="product in $ctrl.products | orderBy: rank" class="four columns">
+        <li ng-repeat="product in $ctrl.products" class="four columns">
             <div class="product-view">
                 <img src="{{ $ctrl.getImagePath(product.photos[0])  }}">
                 <div class="product-detail">

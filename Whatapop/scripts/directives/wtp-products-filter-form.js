@@ -11,12 +11,12 @@ angular
             templateUrl: "views/wtp-products-filter-form.html",
             // Define communication interface between directive and parent scope (Controller / component)
             scope: {
-                //onSelectedCategory: "&" // Notify event to parent scope
+                onSelectedCategory: "&" // Notify event to parent scope
             },
             // Establish directive logic or manipulate DOM in view
             link: function (scope) {
                 // Create new default search
-                var productParams = {
+                scope.productParams = {
                     "search": ""
                 };
 
@@ -29,13 +29,33 @@ angular
                         scope.newSearch){
 
                         // Filter products
-                        productParams.search = scope.newSearch;
+                        scope.productParams.search = scope.newSearch;
 
-                        console.log(productParams);
+                        //console.log(productParams);
+                       // console.log(scope.$router);
 
+                        scope.notifyFilter();
+
+                        //$router.navigate(["products", productParams]);
+
+                        // Notify to parent scope
+                       /* scope.onSelectedCategory(
+                            {
+                                productParams: scope.productParams
+                            }
+                        );*/
                         // reset input
-                        self.newSearch = "";
+                        scope.productParams = {};
                     }
+                };
+
+                scope.notifyFilter = function () {
+                    // Notify to parent scope
+                    scope.onSelectedCategory(
+                        {
+                            productParams: scope.productParams
+                        }
+                    );
                 };
 /*
                 // Create new recipe object
