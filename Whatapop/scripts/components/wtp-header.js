@@ -20,17 +20,16 @@ var ctrl = function ($rootRouter, categoriesService, $location) {
                     categoriesService.getCategory(parseInt(urlParams.cat))
                         .then(function (category) {
                             self.newCategory = category.data;
-                            console.log(self.newCategory);
                         });
                 } else {
-                    self.newCategory = urlParams.cat || defaultCategory;
+                    self.newCategory = defaultCategory;
                 }
             });
     };
 
     self.redirectProducts = function (searchText) {
-        console.log(searchText);
         var urlParams = $location.search();
+
         if (searchText.length > 0) {
             urlParams.search = searchText;
             $rootRouter.navigate(["Products", urlParams]);
@@ -42,6 +41,7 @@ var ctrl = function ($rootRouter, categoriesService, $location) {
     
     self.filterCategory = function () {
         var urlParams = $location.search();
+
         if (self.newCategory.id > 0){
             urlParams.cat = self.newCategory.id;
             $rootRouter.navigate(["Products", urlParams]);

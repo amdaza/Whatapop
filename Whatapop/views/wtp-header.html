@@ -11,10 +11,10 @@
                     ng-options="category as category.name for category in $ctrl.categories track by category.id"></select>
             </div>
             <div class="four columns">
-                <wtp-products-filter-form
+                <wtp-products-filter-search
                         categories="$ctrl.categories"
                         on-selected-category="$ctrl.redirectProducts(searchText)">
-                </wtp-products-filter-form>
+                </wtp-products-filter-search>
             </div>
         </div>
     </div>

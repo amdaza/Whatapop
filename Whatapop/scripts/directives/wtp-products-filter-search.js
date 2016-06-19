@@ -1,14 +1,14 @@
 
 angular
     .module("whatapop")
-    .directive("wtpProductsFilterForm", function () {
+    .directive("wtpProductsFilterSearch", function () {
         return {
             // With restrict we indicate how to use the directive
             // A as attribute of an HTML element
             // E as HTML element
             restrict: "EA",
             // Directive view
-            templateUrl: "views/wtp-products-filter-form.html",
+            templateUrl: "views/wtp-products-filter-search.html",
             // Define communication interface between directive and parent scope (Controller / component)
             scope: {
                 categories: "<",
@@ -28,7 +28,6 @@ angular
                         "id": 0,
                         "name": "Cualquier categoría"
                     };
-                console.log(scope.newCategory);
 
                 // Create new default search
                 scope.searchText = "";
