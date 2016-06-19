@@ -3,8 +3,8 @@
 angular.module(
     "whatapop",
     [
-        "ngComponentRouter"//,
-        //"dahr.ng-image-picker"
+        "ngComponentRouter",
+        "dahr.ng-haversine"
     ]);
 
 // Configure provider $locationProvider.

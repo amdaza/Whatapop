@@ -1,5 +1,5 @@
 
-var ctrl = function (productsService, $location, $filter) {
+var ctrl = function (productsService, usersService, $location, $filter, $haversine, $scope) {
     // this references context, this context is the one we need, so we save it on self var
     var self = this;
 
@@ -13,12 +13,14 @@ var ctrl = function (productsService, $location, $filter) {
             var urlParams = $location.search();
             var customFilter = {};
 
+            // Product name filter
             if (urlParams.search &&
                 urlParams.search.length > 0 ){
 
                 customFilter.name = urlParams.search;
             }
 
+            // Product category filter
             if (urlParams.cat &&
                 urlParams.cat.length > 0 ){
 
@@ -27,6 +29,52 @@ var ctrl = function (productsService, $location, $filter) {
             }
 
             self.products = $filter('filter')(products, customFilter);
+
+            // Product distance filter
+            if (urlParams.radius &&
+                parseFloat(urlParams.radius) &&
+                urlParams.radius > 0 ) {
+
+                var radius = urlParams.radius * 1000;
+
+                var promises = [usersService.getPosition(), usersService.getUsers()];
+
+                Promise.all(promises)
+                    .then(function (responses) {
+                        var coordinates = responses[0].coords;
+                        var allUsers = responses[1].data;
+
+                        var userPosition = {
+                            latitude: coordinates.latitude,
+                            longitude: coordinates.longitude
+                        };
+
+                        var closestUsers = allUsers
+                            .reduce(function (selected, sellerData) {
+
+                            if ($haversine.distance(
+                                    userPosition, {
+                                        latitude: sellerData.latitude,
+                                        longitude: sellerData.longitude
+                                    }) <= radius) {
+                                selected.push(sellerData.id);
+                            }
+                            return selected;
+                        }, []);
+
+                        self.products = [];
+                        self.products = $filter("filter")(products, function (product) {
+                            return closestUsers.indexOf(product.seller.id) > -1;
+                        });
+
+                        // Notify change
+                        $scope.$apply();
+
+                    }).catch(function (error) {
+                        console.error(error);
+                    });
+            }
+
         });
 
         self.favouriteProducts = productsService.getFavouriteProducts();
@@ -41,7 +89,7 @@ var ctrl = function (productsService, $location, $filter) {
 
 };
 
-ctrl.$inject = ["productsService", "$location", "$filter"];
+ctrl.$inject = ["productsService", "usersService", "$location", "$filter", "$haversine", "$scope"];
 
 angular
     .module("whatapop")

@@ -1,5 +1,5 @@
 
-var ctrl = function ($rootRouter, categoriesService, $location) {
+var ctrl = function ($rootRouter, $location, categoriesService) {
     var self = this;
 
     self.$onInit = function () {
@@ -23,6 +23,11 @@ var ctrl = function ($rootRouter, categoriesService, $location) {
                         });
                 } else {
                     self.newCategory = defaultCategory;
+                }
+
+                // Get default radius from param
+                if (urlParams.radius){
+                    self.newRadius = urlParams.radius;
                 }
             });
     };
@@ -49,10 +54,29 @@ var ctrl = function ($rootRouter, categoriesService, $location) {
             delete urlParams.cat;
             $rootRouter.navigate(["Products", urlParams]);
         }
-    }
+    };
+
+    self.pressedRadiusKey = function (event) {
+        // Get key pressed
+        var key = event.which || event.keyCode;
+
+        // Check intro and input has text
+        if (key === 13){
+            var urlParams = $location.search();
+
+            if (parseFloat(self.newRadius) && self.newRadius > 0) {
+                urlParams.radius = self.newRadius;
+                $rootRouter.navigate(["Products", urlParams]);
+            } else {
+                delete urlParams.radius;
+                $rootRouter.navigate(["Products", urlParams]);
+            }
+
+        }
+    };
 };
 
-ctrl.$inject = ["$rootRouter", "categoriesService", "$location"];
+ctrl.$inject = ["$rootRouter", "$location", "categoriesService"];
 
 angular
     .module("whatapop")

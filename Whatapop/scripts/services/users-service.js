@@ -1,7 +1,7 @@
 
 angular
     .module("whatapop")
-    .service("usersService", function($http, Properties) {
+    .service("usersService", function($http, Properties, $q) {
         // All functionality that you want to export has to be published here
 
         this.getUsers = function() {
@@ -16,6 +16,16 @@ angular
             return (relativePath)
                 ? (Properties.serverUrl + "/" + relativePath)
                 : undefined;
+        };
+        
+        this.getPosition = function () { // Returns a promise
+            var defered = $q.defer();
+            navigator.geolocation.getCurrentPosition(
+                function (data) {
+                    defered.resolve({ coords: data.coords});
+                }
+            );
+            return defered.promise;
         };
 
     });
