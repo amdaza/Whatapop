@@ -10,7 +10,16 @@
         </li-->
         <li ng-repeat="product in $ctrl.products" class="four columns">
             <div class="product-view">
-                <img src="{{ $ctrl.getImagePath(product.photos[0])  }}">
+                <div class="product-image-wrapper">
+                    <div ng-show="product.state === 'sold'" class="ribbon-wrapper-green">
+                        <div class="ribbon-green">VENDIDO</div>
+                    </div>
+                    <a ng-link="['Product', { id: product.id }]">
+                        <img ng-class="product.state"
+                             src="{{ $ctrl.getImagePath(product.photos[0]) }}">
+                    </a>
+                </div>
+
                 <div class="product-detail">
                     <div class="vertical-centered">
                         <span class="product-price">{{ product.price | currency }}</span>

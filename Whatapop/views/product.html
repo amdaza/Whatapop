@@ -1,6 +1,12 @@
 <div class="row page-single-product">
     <div class="images-slide five columns">
-        <img src="{{ $ctrl.getImagePath($ctrl.productData.photos[0])  }}">
+        <div class="product-image-wrapper">
+            <div ng-show="$ctrl.productData.state === 'sold'" class="ribbon-wrapper-green">
+                <div class="ribbon-green">VENDIDO</div>
+            </div>
+            <img ng-class="$ctrl.productData.state"
+             src="{{ $ctrl.getImagePath($ctrl.productData.photos[0])  }}">
+        </div>
     </div>
     <div class="product-detail seven columns">
         <span class="product-price">{{ $ctrl.productData.price | currency }}</span>
