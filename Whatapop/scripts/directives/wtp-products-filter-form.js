@@ -31,29 +31,20 @@ angular
                 scope.pressedKey = function (event) {
                     // Get key pressed
                     var key = event.which || event.keyCode;
-                    //console.log(key);
+
                     // Check intro and input has text
-                    if (key === 13 &&
-                        scope.newSearch){
+                    if (key === 13){
 
-                        // Filter products
-                        scope.productParams.search = scope.newSearch;
-
-                        //console.log(productParams);
-                       // console.log(scope.$router);
+                        if(scope.newSearch){
+                            // Filter products
+                            scope.productParams.search = scope.newSearch;
+                        }
 
                         scope.notifyFilter();
 
-                        //$router.navigate(["products", productParams]);
-
-                        // Notify to parent scope
-                       /* scope.onSelectedCategory(
-                            {
-                                productParams: scope.productParams
-                            }
-                        );*/
                         // reset input
                         scope.productParams = {};
+
                     }
                 };
 
