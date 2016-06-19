@@ -16,15 +16,26 @@ angular
             // Establish directive logic or manipulate DOM in view
             link: function (scope) {
                 // Create new default search
-                scope.productParams = {
-                    "category": 1,
+                var productParams = {
                     "search": ""
                 };
 
                 scope.pressedKey = function (event) {
                     // Get key pressed
                     var key = event.which || event.keyCode;
-                    console.log(key);
+                    //console.log(key);
+                    // Check intro and input has text
+                    if (key === 13 &&
+                        scope.newSearch){
+
+                        // Filter products
+                        productParams.search = scope.newSearch;
+
+                        console.log(productParams);
+
+                        // reset input
+                        self.newSearch = "";
+                    }
                 };
 /*
                 // Create new recipe object
