@@ -138,7 +138,11 @@ header.main-header a {
     font-size: 1.4em;
 }
 
-.product-image-wrapper .sold {
+.product-image-wrapper img {
+    border-radius: 5px;
+}
+
+.product-image-wrapper img.sold {
     opacity: 0.5;
     filter: alpha(opacity=50); /* For IE8 and earlier */
 }
