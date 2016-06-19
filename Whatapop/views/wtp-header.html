@@ -1,12 +1,19 @@
 <header class="main-header">
     <div class="container">
         <div class="row">
-            <div class="three columns">
+            <div class="four columns">
                 <a class="main-header-logo" href="/">whatapop</a>
             </div>
-            <div class="nine columns">
+            <div class="four columns">
+                <select id="product-category-filter"
+                    ng-model="$ctrl.newCategory"
+                    ng-change="$ctrl.filterCategory()"
+                    ng-options="category as category.name for category in $ctrl.categories track by category.id"></select>
+            </div>
+            <div class="four columns">
                 <wtp-products-filter-form
-                        on-selected-category="$ctrl.redirectProducts(productParams)">
+                        categories="$ctrl.categories"
+                        on-selected-category="$ctrl.redirectProducts(searchText)">
                 </wtp-products-filter-form>
             </div>
         </div>

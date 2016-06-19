@@ -11,6 +11,7 @@ angular
             templateUrl: "views/wtp-products-filter-form.html",
             // Define communication interface between directive and parent scope (Controller / component)
             scope: {
+                categories: "<",
                 onSelectedCategory: "&" // Notify event to parent scope
             },
             // Establish directive logic or manipulate DOM in view
@@ -18,15 +19,19 @@ angular
 
                 // Set default values from url parameters
                 var urlParams = getLocationParameters();
+                
                 // Search (product name) value
                 scope.newSearch = urlParams.search || "";
+                
                 // Product category value
-               // scope.
+                scope.newCategory = urlParams.cat || {
+                        "id": 0,
+                        "name": "Cualquier categoría"
+                    };
+                console.log(scope.newCategory);
 
                 // Create new default search
-                scope.productParams = {
-                    "search": ""
-                };
+                scope.searchText = "";
 
                 scope.pressedKey = function (event) {
                     // Get key pressed
@@ -37,13 +42,13 @@ angular
 
                         if(scope.newSearch){
                             // Filter products
-                            scope.productParams.search = scope.newSearch;
+                            scope.searchText = scope.newSearch;
                         }
 
                         scope.notifyFilter();
 
                         // reset input
-                        scope.productParams = {};
+                        scope.searchText = {};
 
                     }
                 };
@@ -52,43 +57,11 @@ angular
                     // Notify to parent scope
                     scope.onSelectedCategory(
                         {
-                            productParams: scope.productParams
-                        }
-                    );
-                };
-/*
-                // Create new recipe object
-                scope.recipe = {
-                    name: "",
-                    ingredients: []
-                };
-*/
-                /*
-                // Save button handler
-                scope.notifySave = function () {
-                    // Notify to parent scope
-                    scope.onButtonClick(
-                        {
-                            recipe: scope.recipe
+                            searchText: scope.searchText
                         }
                     );
                 };
 
-                scope.addIngredient = function (ingredient) {
-                    // Add ingredient from component to ingredients collection
-                    scope.recipe.ingredients.push(ingredient);
-                };
-
-                scope.deleteIngredient = function (index) {
-                    // Delete ingredient on index position
-                    scope.recipe.ingredients.splice(index, 1); // splice(index, elements to delete from index)
-                };
-
-                scope.ableToSave = function () {
-                    // Check if form has necessary data
-                    return (scope.recipe.name &&
-                    (scope.recipe.ingredients.length > 0));
-                }*/
             }
         }
     });
