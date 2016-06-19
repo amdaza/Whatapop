@@ -22,7 +22,7 @@
 
                 <div class="product-detail">
                     <div class="vertical-centered">
-                        <a ng-click="$ctrl.toggleFavourite(product.id)" title="Favorito">
+                        <a ng-click="$ctrl.toggleFavourite(product.id, $ctrl.favouriteProducts)" title="Favorito">
                             <div ng-class="{'star-favourite': $ctrl.favouriteProducts.indexOf(product.id) !== -1}"
                                  class="star-five"></div>
                         </a>

@@ -19,37 +19,18 @@ var ctrl = function (productsService, usersService, $sce) {
                     response.data.description);
             });
 
-        // Get User Data
+    };
 
+    self.$onInit = function () {
+        self.favouriteProducts = productsService.getFavouriteProducts();
     };
 
     // Get image absolute path
     self.getImagePath = productsService.getImageAbsolutePath;
 
+    // Manage favourite products
+    self.toggleFavourite = productsService.toggleFavourite;
 
-    /*
-     // Save product
-     self.saveRecipe = function (product) {
-
-     productsService.saveRecipe(product, productImage)
-     .then(function (response) {
-     // Old way without components
-     //$scope.products.push(response.data);
-
-     // Like ngLink
-     // $router has data related with actual route
-     // uses navigate to redirect
-     self.$router.navigate(['MyRecipes']);
-     });
-     };
-
-     self.selectImage = function (imgFile) {
-     productImage = imgFile;
-     };
-
-     self.deselectImage = function () {
-     productImage = undefined;
-     }*/
 };
 
 

@@ -29,30 +29,15 @@ var ctrl = function (productsService, $location, $filter) {
             self.products = $filter('filter')(products, customFilter);
         });
 
-        // Get favourite products
-        var jsonFavourites = localStorage.getItem("favouriteProducts");
+        self.favouriteProducts = productsService.getFavouriteProducts();
 
-        if (jsonFavourites) {
-            self.favouriteProducts = JSON.parse(jsonFavourites);
-        } else {
-            self.favouriteProducts = [];
-        }
     };
 
     // Get image absolute path
     self.getImagePath = productsService.getImageAbsolutePath;
 
-    self.toggleFavourite = function (productId) {
-        var indexItem = self.favouriteProducts.indexOf(productId);
-
-        if (indexItem === -1) {
-            self.favouriteProducts.push(productId);
-        } else {
-            self.favouriteProducts.splice(indexItem, 1);
-        }
-        
-        localStorage.setItem("favouriteProducts", JSON.stringify(self.favouriteProducts));
-    }
+    // Manage favourite products
+    self.toggleFavourite = productsService.toggleFavourite;
 
 };
 

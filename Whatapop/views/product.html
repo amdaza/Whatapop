@@ -9,6 +9,10 @@
         </div>
     </div>
     <div class="product-detail seven columns">
+        <a ng-click="$ctrl.toggleFavourite($ctrl.productData.id, $ctrl.favouriteProducts)" title="Favorito">
+            <div ng-class="{'star-favourite': $ctrl.favouriteProducts.indexOf($ctrl.productData.id) !== -1}"
+                 class="star-five"></div>
+        </a>
         <span class="product-price">{{ $ctrl.productData.price | currency }}</span>
         <a ng-link="['Product', { id: product.id }]"
            class="product-title" ng-bind-html="$ctrl.productData.name | productTitleFilter"></a>
