@@ -22,6 +22,10 @@
 
                 <div class="product-detail">
                     <div class="vertical-centered">
+                        <a ng-click="$ctrl.toggleFavourite(product.id)" title="Favorito">
+                            <div ng-class="{'star-favourite': $ctrl.favouriteProducts.indexOf(product.id) !== -1}"
+                                 class="star-five"></div>
+                        </a>
                         <span class="product-price">{{ product.price | currency }}</span>
                         <a ng-link="['Product', { id: product.id }]"
                            class="product-title"

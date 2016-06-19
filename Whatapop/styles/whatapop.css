@@ -147,6 +147,10 @@ header.main-header a {
     filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
+/*
+* Ribbon example founded at https://css-tricks.com/snippets/css/corner-ribbon/
+*/
+
 .product-image-wrapper {
     margin: 0 auto;
     width: 280px;
@@ -209,4 +213,71 @@ header.main-header a {
 
 .ribbon-green:after {
     right: 0;
-}​
+}
+
+/*
+* Star example founded at: https://css-tricks.com/examples/ShapesOfCSS/
+*/
+
+.star-five {
+    cursor: pointer;
+     margin: 30px 0;
+     float: right;
+     display: block;
+     color: lightgoldenrodyellow;
+     width: 0px;
+     height: 0px;
+     border-right:  50px solid transparent;
+     border-bottom: 35px  solid lightgoldenrodyellow;
+     border-left:   50px solid transparent;
+     -moz-transform:    rotate(35deg);
+     -webkit-transform: rotate(35deg);
+     -ms-transform:     rotate(35deg);
+     -o-transform:      rotate(35deg);
+ }
+.star-five:before {
+    border-bottom: 40px solid lightgoldenrodyellow;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -23px;
+    left: -32px;
+    display: block;
+    content: '';
+    -webkit-transform: rotate(-35deg);
+    -moz-transform:    rotate(-35deg);
+    -ms-transform:     rotate(-35deg);
+    -o-transform:      rotate(-35deg);
+
+}
+.star-five:after {
+    position: absolute;
+    display: block;
+    color: lightgoldenrodyellow;
+    top: 1px;
+    left: -52px;
+    width: 0px;
+    height: 0px;
+    border-right: 50px solid transparent;
+    border-bottom: 35px solid lightgoldenrodyellow;
+    border-left: 50px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform:    rotate(-70deg);
+    -ms-transform:     rotate(-70deg);
+    -o-transform:      rotate(-70deg);
+    content: '';
+}
+
+.star-favourite.star-five {
+    color: gold;
+    border-bottom: 35px  solid gold;
+}
+.star-favourite.star-five:before {
+    border-bottom: 40px solid gold;
+}
+.star-favourite.star-five:after {
+    color: gold;
+    border-bottom: 35px solid gold;
+}

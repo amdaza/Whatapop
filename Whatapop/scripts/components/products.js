@@ -4,6 +4,7 @@ var ctrl = function (productsService, $location, $filter) {
     var self = this;
 
     self.$onInit = function () {
+        // Get products
         productsService.getProducts() // Returns a promise
         .then(function (response) {
             // Random order
@@ -27,10 +28,31 @@ var ctrl = function (productsService, $location, $filter) {
 
             self.products = $filter('filter')(products, customFilter);
         });
+
+        // Get favourite products
+        var jsonFavourites = localStorage.getItem("favouriteProducts");
+
+        if (jsonFavourites) {
+            self.favouriteProducts = JSON.parse(jsonFavourites);
+        } else {
+            self.favouriteProducts = [];
+        }
     };
 
     // Get image absolute path
     self.getImagePath = productsService.getImageAbsolutePath;
+
+    self.toggleFavourite = function (productId) {
+        var indexItem = self.favouriteProducts.indexOf(productId);
+
+        if (indexItem === -1) {
+            self.favouriteProducts.push(productId);
+        } else {
+            self.favouriteProducts.splice(indexItem, 1);
+        }
+        
+        localStorage.setItem("favouriteProducts", JSON.stringify(self.favouriteProducts));
+    }
 
 };
 

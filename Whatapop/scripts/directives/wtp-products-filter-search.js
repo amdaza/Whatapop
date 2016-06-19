@@ -22,12 +22,6 @@ angular
                 
                 // Search (product name) value
                 scope.newSearch = urlParams.search || "";
-                
-                // Product category value
-                scope.newCategory = urlParams.cat || {
-                        "id": 0,
-                        "name": "Cualquier categoría"
-                    };
 
                 // Create new default search
                 scope.searchText = "";
