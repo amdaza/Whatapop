@@ -1,5 +1,5 @@
 
-var ctrl = function ($rootRouter/*productsService*/) {
+var ctrl = function ($rootRouter) {
     var self = this;
 
     self.redirectProducts = function (productParams) {
@@ -8,14 +8,10 @@ var ctrl = function ($rootRouter/*productsService*/) {
 };
 
 ctrl.$inject = ["$rootRouter"];
-//ctrl.$inject = ["productsService"];
 
 angular
     .module("whatapop")
     .component("wtpHeader", {
-        bindings: {
-            //$router: "<"
-        },
         templateUrl: "views/wtp-header.html",
         controller: ctrl
     });

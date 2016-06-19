@@ -15,6 +15,14 @@ angular
             },
             // Establish directive logic or manipulate DOM in view
             link: function (scope) {
+
+                // Set default values from url parameters
+                var urlParams = getLocationParameters();
+                // Search (product name) value
+                scope.newSearch = urlParams.search || "";
+                // Product category value
+               // scope.
+
                 // Create new default search
                 scope.productParams = {
                     "search": ""
